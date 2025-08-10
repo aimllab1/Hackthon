@@ -1,94 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>AI Road Pilot Hackathon</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
-
-  <!-- Header Section -->
-   <header>
-    <h1 style="display: inline;">Adhiparasakthi Engineering College</h1>
-    <div class="marquee">
-      <marquee behavior="scroll" direction="left">Welcome to the AI Road Pilot Hackathon - Show your innovation!</marquee>
-    </div>
+  <header>
+    <h1>Adhiparasakthi Engineering College</h1>
     <h2>Department of CSE (AI & ML)</h2>
   </header>
-  <!-- Main Content -->
-   <main>
-    <section class="intro" data-aos="fade-up">
-      <h3>🚀 AI Road Pilot Hackathon</h3>
+
+  <main>
+    <section class="intro" data-aos="fade-up" data-aos-once="true">
+      <center><h3 class="">AI Road Pilot Hackathon</h3></center>
       <p><strong>Date:</strong> 28th August 2025 at 9:00 AM</p>
       <p>All Engineering students are invited to participate and showcase their talent in AI innovations!</p>
     </section>
-
-    <section class="intro" data-aos="fade-right">
+    <section class="contact" data-aos="fade-up" data-aos-once="true">
+      <div class="im">
+        <div class="img1"></div>
+        <br>
+        <div class="img1"></div>
+      </div>
+    </section>
+    <section class="rules" data-aos="fade-up" data-aos-once="true">
       <h3>Rules</h3>
       <p><strong>Round 1 :</strong> Paper presentation 28th August 2025</p>
       <p><strong>Round 2 :</strong> Project development 28th August 2025</p>
-      <p>Winning prize of cash Rs. 5000</p>
+      <p><strong>Prize:</strong> Winning prize of cash ₹5,000</p>
     </section>
 
-    <section class="agenda" data-aos="zoom-in">
+    <section class="agenda" data-aos="fade-up" data-aos-once="true">
       <h3>📅 Agenda</h3>
       <table>
         <thead>
-          <tr>
-            <th>Time</th>
-            <th>Event</th>
-          </tr>
+          <tr><th>Time</th><th>Event</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>9:00 AM</td>
-            <td>Inauguration & Welcome Address</td>
-          </tr>
-          <tr>
-            <td>10:00 AM</td>
-            <td>Paper Presentation</td>
-          </tr>
-          <tr>
-            <td>1:00 PM</td>
-            <td>Lunch Break</td>
-          </tr>
-          <tr>
-            <td>2:00 PM</td>
-            <td>Presentation Continues</td>
-          </tr>
-          <tr>
-            <td>4:00 PM</td>
-            <td>Presentations & Judging</td>
-          </tr>
-          <tr>
-            <td>5:00 PM</td>
-            <td>Results & Closing Ceremony</td>
-          </tr>
+          <tr><td>9:00 AM</td><td>Inauguration & Welcome Address</td></tr>
+          <tr><td>10:00 AM</td><td>Paper Presentation</td></tr>
+          <tr><td>1:00 PM</td><td>Lunch Break</td></tr>
+          <tr><td>2:00 PM</td><td>Presentation Continues</td></tr>
+          <tr><td>4:00 PM</td><td>Presentations & Judging</td></tr>
+          <tr><td>5:00 PM</td><td>Results & Closing Ceremony</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- Call to Action Button -->
-    <section class="cta" data-aos="fade-up">
-      <a href="https://forms.gle/VNTJ6gBq76TAPLT4A">
-        <button class="center-btn">Join the Hackathon Now</button>
-      </a>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" data-aos="fade-up">
-      <h3>📞 Contact Information</h3>
+    <section class="contact" data-aos="fade-up" data-aos-once="true">
+      <h3 class="shake">📞 Contact Information</h3>
       <p>Email: <a href="mailto:cseaimlmail@gmail.com">cseaimlmail@gmail.com</a></p>
       <p>Phone: <a href="tel:9486202263">9486202263</a>, <a href="tel:9025737858">9025737858</a></p>
     </section>
   </main>
 
-  <!-- AOS Animation Script -->
+  <!-- Floating action buttons: registration (left) and chatbot (right) -->
+  <div id="fab-wrap" class="aaa">
+    <button id="registration-button" class="fab zoo" aria-label="Register">📝</button>
+    <button id="chatbot-button" class="fab zoo" aria-label="Assistant">🤖</button>
+  </div>
+
+  <!-- Registration Popup -->
+  <div id="registration-container" class="popup" aria-hidden="true">
+    <div class="popup-header">
+      <strong>Hackathon Registration</strong>
+      <button id="close-registration" class="popup-close" aria-label="Close">✖</button>
+    </div>
+    <div class="popup-body">
+      <form id="team-form" autocomplete="on">
+        <input name="teamName" type="text" placeholder="Team Name" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <select name="degree" required>
+          <option value="">Select Degree</option>
+          <option value="B.E">B.E</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="Others">Others</option>
+        </select>
+        <input name="collegeName" type="text" placeholder="College Name" required>
+        <button type="submit" class="primary">Submit</button>
+      </form>
+      <div id="form-loading" class="center hidden" role="status" aria-live="polite">
+        <div class="spinner"></div>
+        <div class="loading-text">Sending...</div>
+      </div>
+      <div id="form-success" class="center hidden" aria-live="polite">
+        <div class="tick">✅</div>
+        <div class="success-text">Successful!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot Popup -->
+  <div id="chatbot-container" class="popup" aria-hidden="true">
+    <div class="popup-header">
+      <strong>Event Assistant</strong>
+      <button id="close-chat" class="popup-close" aria-label="Close">✖</button>
+    </div>
+    <div class="popup-body chat-body">
+      <div class="chat-messages" id="chat-messages" role="log" aria-live="polite"></div>
+      <div class="chat-controls">
+        <input id="user-input" type="text" placeholder="Ask a question..." />
+        <button id="send-btn" class="primary">Send</button>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="fo-info">
+      <a href="https://chat.whatsapp.com/EBPbfZd6woK3GXjhjDjCDS?mode=ac_t"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/aiml.apec/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61579069630466"><i class="fab fa-facebook"></i></a>
+      <a href="www.linkedin.com/in/aiml-apec"><i class="fab fa-linkedin"></i></a>
+      <a href="https://x.com/Aiml_Apec"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.youtube.com/@Aiml-Apec"><i class="fab fa-youtube"></i></a>
+    </div>
+    <br>
+    <h6>All rights recived | @Ai & Ml APEC 2025</h6>
+  </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
   <script src="script.js"></script>
+  <script> AOS.init({ duration: 700, delay: 50, once: true, offset: 120 }); </script>
 </body>
 </html>
